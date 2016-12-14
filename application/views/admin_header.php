@@ -37,7 +37,7 @@
 							<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 								<ul class="nav navbar-nav">
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('username'); ?> <b class="caret"></b></a>
 										<ul class="dropdown-menu animated fadeInUp">
 											<li><a data-toggle="modal" data-target="#modal_profil" href="#">Profil</a></li>
 											<li><a href="<?php echo site_url(); ?>admin/keluar">Keluar</a></li>
@@ -51,24 +51,30 @@
 			</div>
 		</div>
 		
-		<!-- Modal -->
-		<div class="modal fade" id="modal_profil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modal_profil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Profil</h4>
-					</div>
-					<div class="modal-body">
-						...
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-						<button type="button" class="btn btn-primary">Simpan</button>
-					</div>
+					<form method="POST" id="form_ubah" enctype="multipart/form-data">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Profil Admin</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label>Username</label>
+								<input class="form-control" name="username" value="<?php echo $this->session->userdata('username'); ?>" placeholder="Username" type="text" readonly />
+							</div>
+							<div class="form-group">
+								<label>Password</label>
+								<input class="form-control" name="password" value="<?php echo $this->session->userdata('password'); ?>" placeholder="Password" type="text" readonly />
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-default" data-dismiss="modal"> Tutup</button>
+						</div>
+					</form>
 				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 

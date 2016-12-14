@@ -8,6 +8,7 @@
 								<form method="post" action="<?php echo site_url(); ?>admin_tampilan/ubah_konten" enctype="multipart/form-data">
 									<div class="row" style="padding-bottom:3%;">
 									<?php
+										$i = 2;
 										$query = $this->m_konten->tampil_konten();
 										foreach($query->result() as $row){
 									?>
@@ -22,15 +23,16 @@
 															<text>* ukuran gambar harus 500 x 500 pixel.</text><br/>
 															<text>* format .jpg atau .png</text>
 														</div>
-														<input type="file" name="gambar[]" class="form-control">
+														<input type="file" name="gambar[<?php echo $i; ?>]" class="form-control">
+														<input type="hidden" name="id_konten[<?php echo $i; ?>]" value="<?php echo $row->id_konten; ?>">
 													</div>
 													<div class="form-group">
 														<label>Judul</label>
-														<input type="text" name="judul[]" class="form-control" value="<?php echo $row->judul; ?>" >
+														<input type="text" name="judul[<?php echo $i; ?>]" class="form-control" value="<?php echo $row->judul; ?>" >
 													</div>
 													<div class="form-group">
 														<label>Deskripsi</label>
-														<textarea class="form-control" name="deskripsi[]" rows="9"><?php echo $row->deskripsi; ?></textarea>
+														<textarea class="form-control" name="deskripsi[<?php echo $i; ?>]" rows="9"><?php echo $row->deskripsi; ?></textarea>
 													</div>
 												</div>
 											</div>
@@ -38,11 +40,11 @@
 										<div class="clearfix"></div>
 										<hr />
 									<?php
+											$i--;
 										}
 									?>
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="id_konten[]" value="<?php echo $row->id_konten; ?>">
 										<button class="btn btn-primary" type="submit"> Simpan</button>
 									</div>
 								</form>

@@ -3,6 +3,9 @@
 						<div class="col-md-12">
 							<div class="content-box-header panel-heading">
 								<div class="panel-title ">Laporan</div>
+								<div class="panel-options">
+									<a target="_blank" href="<?php echo site_url(); ?>admin_laporan/cetak_laporan"><i class="glyphicon glyphicon-print"></i> Cetak</a>
+								</div>
 							</div>
 							<div class="content-box-large box-with-header">
 								<div class="content-box-large">

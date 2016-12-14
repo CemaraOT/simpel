@@ -54,7 +54,8 @@ class M_peminjaman extends CI_Model {
         $sql = "select * from tbl_peminjaman
 				inner join tbl_novel on tbl_novel.id_novel = tbl_peminjaman.id_novel
 				inner join tbl_user on tbl_user.id_user = tbl_peminjaman.id_user
-				where tbl_peminjaman.tgl_kembali is NULL";
+				where tbl_peminjaman.tgl_kembali is NULL
+				order by tbl_peminjaman.id_peminjaman desc";
         return $this->db->query($sql);
     }
 	
@@ -97,9 +98,7 @@ class M_peminjaman extends CI_Model {
         $sql = "update tbl_peminjaman set
 				tgl_kembali = '".$this->get_tgl_kembali()."'
 				where
-				id_novel = '".$this->get_id_novel()."'
-				and id_user = '".$this->get_id_user()."'
-				and tgl_kembali is NULL";
+				id_peminjaman = '".$this->get_id_peminjaman()."'";
         return $this->db->query($sql);
     }
 }

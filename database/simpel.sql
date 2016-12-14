@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2016 at 11:35 PM
+-- Generation Time: Dec 15, 2016 at 12:51 AM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -77,8 +77,8 @@ CREATE TABLE `tbl_konten` (
 
 INSERT INTO `tbl_konten` (`id_konten`, `judul`, `deskripsi`, `gambar`) VALUES
 (1, 'Cinta Brontosaurus by Raditya Dika.', 'Dika (Raditya Dika) adalah seorang penulis yang baru saja putus cinta dengan Nina (Pamela Bowie), pacarnya setelah sekian lama. Semenjak putus cinta ini, dia percaya bahwa cinta bisa kedaluwarsa. Kosasih (Soleh Solihun), agen naskah Dika, mencoba untuk membuat Dika yakin terhadap cinta kembali, seperti Kosasih yakin dengan istrinyanya Wanda (Tyas Mirasih). Usaha ini, membawa Dika ke dalam serangkaian perkenalan absurd.', '1.jpg'),
-(2, 'The Fault in Our Stars. One Sick Love Story', 'The Fault in Our Stars merupakan sebuah film Amerika Serikat yang dirilis pada tahun 2014 Film yang disutradarai oleh Josh Boone ini pemainnya antara lain oleh Shailene Woodley, Ansel Elgort, dan masih banyak lagi. Tanggal rilisnya pada 16 Mei 2014.', '2.jpg'),
-(3, 'Short Romantic Love Story.', 'Romance are romantic love stories recorded in visual media for broadcast in theaters and on cinema that focus on passion, emotion, and the affectionate romantic involvement of the main characters and the journey that their genuinely strong, true and pure romantic love takes them through dating, courtship or marriage.', '3.jpg');
+(2, 'The Fault in Our Stars. One Sick Love Story', 'The Fault in Our Stars merupakan sebuah film Amerika Serikat yang dirilis pada tahun 2014 Film yang disutradarai oleh Josh Boone ini pemainnya antara lain oleh Shailene Woodley, Ansel Elgort, dan masih banyak lagi. Tanggal rilisnya pada 16 Mei 2014..', '2.jpg'),
+(3, 'Short Romantic Love Stories.', 'Romance readers agree on only one thing: Each romance novel should have a Happily Ever After. For more of what is required, take a look at What Rules are in the Romance Novel Covenant?\r\n\r\nWe have all weighed in on the Best This and the Crucial That, but we have not yet attempted-not here, at least-to come up with a comprehensive list of what the Romance Novels You Should Have Read by Now are.', '3.jpg');
 
 -- --------------------------------------------------------
 
@@ -126,9 +126,10 @@ INSERT INTO `tbl_peminjaman` (`id_peminjaman`, `id_novel`, `id_user`, `tgl_pinja
 (1, 1, 1, '2016-12-14', '2016-12-14'),
 (2, 2, 1, '2016-12-14', NULL),
 (3, 3, 1, '2016-12-01', NULL),
-(4, 3, 2, '2016-12-14', NULL),
 (7, 1, 1, '2016-12-14', NULL),
-(8, 1, 4, '2016-12-14', '2016-12-14');
+(8, 1, 4, '2016-12-14', '2016-12-14'),
+(10, 3, 2, '2016-12-15', '2016-12-15'),
+(11, 3, 2, '2016-12-15', '2016-12-15');
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,7 @@ ALTER TABLE `tbl_novel`
 -- AUTO_INCREMENT for table `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --

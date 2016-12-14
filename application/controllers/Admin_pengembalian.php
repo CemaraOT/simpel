@@ -40,6 +40,8 @@ class Admin_pengembalian extends CI_Controller {
 		$this->m_peminjaman->set_tgl_kembali(date('Y-m-d',strtotime($this->input->post('tgl_kembali'))));
 		$query = $this->m_peminjaman->tampil_peminjaman_by_id_user_id_novel_tgl_kembali_null();
 		if($query->num_rows()){
+			$row = $query->row();
+			$this->m_peminjaman->set_id_peminjaman($row->id_peminjaman);
 			$this->m_peminjaman->pengembalian();
 		}
 		$this->session->set_flashdata('success', 'Novel berhasil disimpan.');

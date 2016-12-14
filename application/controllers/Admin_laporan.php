@@ -13,4 +13,9 @@ class Admin_laporan extends CI_Controller {
 		$this->load->view('admin_header');
 		$this->load->view('admin_laporan');
 	}
+	
+	public function cetak_laporan()
+	{
+		$this->load->view('halaman_cetak_laporan');
+	}
 }

@@ -8,6 +8,7 @@
 								<form method="post" action="<?php echo site_url(); ?>admin_tampilan/ubah_banner" enctype="multipart/form-data">
 									<div class="row" style="padding-bottom:3%;">
 									<?php
+										$i = 2;
 										$query = $this->m_banner->tampil_banner();
 										foreach($query->result() as $row){
 									?>
@@ -19,14 +20,15 @@
 												<text>* ukuran gambar harus 1366 x 500 pixel.</text><br/>
 												<text>* format .jpg atau .png</text>
 											</div>
-											<input type="file" name="gambar[]" class="form-control">
+											<input type="file" name="gambar[<?php echo $i; ?>]" class="form-control">
+											<input type="hidden" name="id_banner[<?php echo $i; ?>]" value="<?php echo $row->id_banner; ?>">
 										</div>
 									<?php
+											$i--;
 										}
 									?>
 									</div>
 									<div class="modal-footer">
-										<input type="hidden" name="id_banner[]" value="<?php echo $row->id_banner; ?>">
 										<button class="btn btn-primary" type="submit"> Simpan</button>
 									</div>
 								</form>
