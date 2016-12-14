@@ -23,6 +23,7 @@ class Admin extends CI_Controller {
 			$row = $query->row();
 			if($row->username == $username && $row->password == $password){
 				$this->session->set_userdata('username',$row->username);
+				$this->session->set_userdata('password',$row->password);
 				$this->session->set_flashdata('success', 'Selamat datang '.$row->username.'!');
 				redirect(site_url().'admin_beranda');
 			}elseif($row->username == $username){

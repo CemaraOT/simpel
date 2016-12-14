@@ -11,11 +11,10 @@
 											<thead>
 												<tr>
 													<th>ID Peminjaman</th>
-													<th>ID Novel</th>
-													<th>ID User</th>
+													<th>Judul Novel</th>
+													<th>Peminjam</th>
 													<th>Tanggal Pinjam</th>
 													<th>Tanggal Kembali</th>
-													<th>Status</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -25,11 +24,10 @@
 												?>
 												<tr>
 													<td><?php echo $row->id_peminjaman; ?></td>
-													<td><?php echo $row->id_novel; ?></td>
-													<td><?php echo $row->id_user; ?></td>
+													<td><?php echo $row->judul; ?></td>
+													<td><?php echo $row->nama; ?></td>
 													<td><?php echo date('d F Y',strtotime($row->tgl_pinjam)); ?></td>
-													<td><?php echo date('d F Y',strtotime($row->tgl_kembali)); ?></td>
-													<td><?php if($row->status == '1'){ echo 'Dipinjam'; }else{ echo 'Dikembalikan'; } ?></td>
+													<td><?php if($row->tgl_kembali == NULL){ echo '--'; }else{ echo date('d F Y',strtotime($row->tgl_kembali)); } ?></td>
 												</tr>
 												<?php
 													}

@@ -99,6 +99,16 @@
 									<li <?php if($this->uri->segment(2) == 'user') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_manajemen/user">User</a></li>
 								</ul>
 							</li>
+							<li class="submenu <?php if($this->uri->segment(1) == 'admin_tampilan') { echo 'open'; } ?>">
+								<a href="#">
+									<i class="glyphicon glyphicon-cog"></i> Tampilan
+									<span class="caret pull-right"></span>
+								</a>
+								<ul>
+									<li <?php if($this->uri->segment(2) == 'banner') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_tampilan/banner">Banner</a></li>
+									<li <?php if($this->uri->segment(2) == 'konten') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_tampilan/konten">Konten</a></li>
+								</ul>
+							</li>
 							<li <?php if($this->uri->segment(1) == 'admin_laporan') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_laporan"><i class="glyphicon glyphicon-stats"></i> Laporan</a></li>
 						</ul>
 					</div>

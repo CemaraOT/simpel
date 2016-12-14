@@ -33,6 +33,11 @@
 															</div>
 														</div>
 													</td>
+													<input type="hidden" id="nama_<?php echo $row->id_user;?>" value="<?php echo $row->nama;?>">
+													<input type="hidden" id="alamat_<?php echo $row->id_user;?>" value="<?php echo $row->alamat;?>">
+													<input type="hidden" id="email_<?php echo $row->id_user;?>" value="<?php echo $row->email;?>">
+													<input type="hidden" id="no_telp_<?php echo $row->id_user;?>" value="<?php echo $row->no_telp;?>">
+													<input type="hidden" id="jenis_kelamin_<?php echo $row->id_user;?>" value="<?php if($row->jenis_kelamin == '0') { echo 'Perempuan'; }else{ echo 'Laki-laki'; } ;?>">
 												</tr>
 												<?php
 													}
@@ -66,7 +71,30 @@
 					<h4 class="modal-title" id="myModalLabel">Detail User</h4>
 				</div>
 				<div class="modal-body">
-					
+					<div class="form-group">
+						<label>ID User</label>
+						<input type="text" id="id_user" class="form-control" readonly />
+					</div>
+					<div class="form-group">
+						<label>Nama</label>
+						<input type="text" id="nama" class="form-control" readonly />
+					</div>
+					<div class="form-group">
+						<label>Alamat</label>
+						<input type="text" id="alamat" class="form-control" readonly />
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="text" id="email" class="form-control" readonly />
+					</div>
+					<div class="form-group">
+						<label>Nomor Telepon</label>
+						<input type="text" id="no_telp" class="form-control" readonly />
+					</div>
+					<div class="form-group">
+						<label>Jenis Kelamin</label>
+						<input type="text" id="jenis_kelamin" class="form-control" readonly />
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-default" data-dismiss="modal"> Tutup</button>
@@ -76,3 +104,17 @@
 		<div class="clear"></div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.detail').click(function() {
+			var id=this.id.substr(7);
+			$('#id_user').val(id);
+			$('#nama').val($('#nama_' + id).val());
+			$('#alamat').val($('#alamat_' + id).val());
+			$('#email').val($('#email_' + id).val());
+			$('#no_telp').val($('#no_telp_' + id).val());
+			$('#jenis_kelamin').val($('#jenis_kelamin_' + id).val());
+		});
+	});
+</script>

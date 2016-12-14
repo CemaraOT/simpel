@@ -13,14 +13,14 @@
 													<th>ID</th>
 													<th>Gambar</th>
 													<th>Judul</th>
-													<th>Deskripsi</th>
-													<th>Stok</th>
+													<th>Tanggal Pinjam</th>
+													<th>Peminjam</th>
 													<th>Modifikasi</th>
 												</tr>
 											</thead>
 											<tbody>
 												<?php
-													$query = $this->m_novel->tampil_novel();
+													$query = $this->m_peminjaman->tampil_peminjaman_by_tgl_kembali_null();
 													foreach($query->result() as $row){
 												?>
 												<tr>
@@ -29,8 +29,8 @@
 														<img src="<?php echo base_url(); ?>assets/img/novel/<?php echo $row->gambar; ?>" class="img-thumbnail center-block" width="200" height="200"/>
 													</td>
 													<td><?php echo $row->judul; ?></td>
-													<td><?php echo $row->deskripsi; ?></td>
-													<td><?php echo $row->stok; ?></td>
+													<td><?php echo date('d-m-Y',strtotime($row->tgl_pinjam)); ?></td>
+													<td><?php echo $row->nama; ?></td>
 													<td>
 														<div class="text-center">
 															<button type="button" class="btn btn-success btn-circle detail" style="width:40px; height:40px;"

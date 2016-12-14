@@ -38,12 +38,52 @@ class M_peminjaman extends CI_Model {
 		
 	//query
 	public function tampil_peminjaman() {
-        $sql = "select * from tbl_peminjaman order by id_peminjaman desc";
+        $sql = "select * from tbl_peminjaman
+				inner join tbl_novel on tbl_novel.id_novel = tbl_peminjaman.id_novel
+				inner join tbl_user on tbl_user.id_user = tbl_peminjaman.id_user
+				order by tbl_peminjaman.id_peminjaman desc";
         return $this->db->query($sql);
     }
 
 	public function tampil_peminjaman_by_id_peminjaman() {
         $sql = "select * from tbl_peminjaman where id_peminjaman = '".$this->get_id_peminjaman()."'";
+        return $this->db->query($sql);
+    }
+	
+	public function tampil_peminjaman_by_tgl_kembali_null() {
+        $sql = "select * from tbl_peminjaman
+				inner join tbl_novel on tbl_novel.id_novel = tbl_peminjaman.id_novel
+				inner join tbl_user on tbl_user.id_user = tbl_peminjaman.id_user
+				where tbl_peminjaman.tgl_kembali is NULL";
+        return $this->db->query($sql);
+    }
+	
+	public function tampil_peminjaman_by_id_user() {
+        $sql = "select * from tbl_peminjaman
+				inner join tbl_novel on tbl_novel.id_novel = tbl_peminjaman.id_novel
+				inner join tbl_user on tbl_user.id_user = tbl_peminjaman.id_user
+				where tbl_peminjaman.tgl_kembali is NULL
+				and tbl_peminjaman.id_user = '".$this->get_id_user()."'";
+        return $this->db->query($sql);
+    }
+	
+	public function tampil_peminjaman_by_id_user_id_novel_tgl_kembali_null() {
+        $sql = "select * from tbl_peminjaman
+				inner join tbl_novel on tbl_novel.id_novel = tbl_peminjaman.id_novel
+				inner join tbl_user on tbl_user.id_user = tbl_peminjaman.id_user
+				where tbl_peminjaman.tgl_kembali is NULL
+				and tbl_peminjaman.id_user = '".$this->get_id_user()."'
+				and tbl_peminjaman.id_novel = '".$this->get_id_novel()."'";
+        return $this->db->query($sql);
+    }
+	
+	public function pengembalian() {
+        $sql = "update tbl_peminjaman set
+				tgl_kembali = '".$this->get_tgl_kembali()."'
+				where
+				id_novel = '".$this->get_id_novel()."'
+				and id_user = '".$this->get_id_user()."'
+				and tgl_kembali is NULL";
         return $this->db->query($sql);
     }
 	

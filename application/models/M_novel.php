@@ -37,6 +37,11 @@ class M_novel extends CI_Model {
         return $this->db->query($sql);
     }
 	
+	public function tampil_novel_desc_limit_1() {
+        $sql = "select * from tbl_novel order by id_novel desc limit 1";
+        return $this->db->query($sql);
+    }
+	
 	public function tampil_novel_by_id_novel() {
         $sql = "select * from tbl_novel where id_novel = '".$this->get_id_novel()."'";
         return $this->db->query($sql);
@@ -57,7 +62,16 @@ class M_novel extends CI_Model {
 	public function ubah_novel() {
 		$sql = "update tbl_novel set
 				judul = '".$this->get_judul()."',
-				deskripsi = '".$this->get_deskripsi()."'
+				deskripsi = '".$this->get_deskripsi()."',
+				stok = '".$this->get_stok()."'
+				where
+				id_novel = '".$this->get_id_novel()."'";
+		return $this->db->query($sql);
+	}
+	
+	public function ubah_stok() {
+		$sql = "update tbl_novel set
+				stok = '".$this->get_stok()."'
 				where
 				id_novel = '".$this->get_id_novel()."'";
 		return $this->db->query($sql);
