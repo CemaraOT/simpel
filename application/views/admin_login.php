@@ -34,14 +34,16 @@
 				<div class="col-md-4 col-md-offset-4">
 					<div class="login-wrapper">
 						<div class="box">
-							<div class="content-wrap">
-								<h6>ADMIN LOGIN</h6>
-								<input class="form-control" type="text" placeholder="Username">
-								<input class="form-control" type="password" placeholder="Password">
-								<div class="action">
-									<a class="btn btn-primary signup" href="<?php echo site_url(); ?>admin_beranda">Login</a>
-								</div>                
-							</div>
+							<form method="post" action="<?php echo site_url();?>admin/masuk">
+								<div class="content-wrap">
+									<h6>ADMIN LOGIN</h6>
+									<input class="form-control" type="text" name="username" placeholder="Username">
+									<input class="form-control" type="password" name="password" placeholder="Password">
+									<div class="action">
+										<input type="submit" style="width:100%;" class="btn btn-primary" value="Login" />
+									</div>                
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -49,3 +51,12 @@
 		</div>
 	</body>
 </html>
+
+<!-- /. JAVASCRIPT  --> 
+<script type="text/javascript">
+	$(document).ready(function () {
+		<?php if($this->session->flashdata('error')){ ?>
+			alert('<?php echo $this->session->flashdata('error'); ?>');
+		<?php } ?>
+	});
+</script>

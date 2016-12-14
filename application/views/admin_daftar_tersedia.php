@@ -10,21 +10,24 @@
 										<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 											<thead>
 												<tr>
-													<th>Rendering engine</th>
-													<th>Browser</th>
-													<th>Platform(s)</th>
-													<th>Engine version</th>
-													<th>CSS grade</th>
+													<th>ID</th>
+													<th>Judul</th>
+													<th>Modifikasi</th>
 												</tr>
 											</thead>
 											<tbody>
+												<?php
+													$query = $this->m_novel->tampil_novel();
+													foreach($query->result() as $row){
+												?>
 												<tr>
-													<td>test</td>
-													<td>test</td>
-													<td>test</td>
-													<td>test</td>
-													<td>test</td>
+													<td><?php echo $row->id_novel; ?></td>
+													<td><?php echo $row->judul; ?></td>
+													<td></td>
 												</tr>
+												<?php
+													}
+												?>
 											</tbody>
 										</table>
 									</div>

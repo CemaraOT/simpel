@@ -1,28 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_daftar_novel extends CI_Controller {
+class Admin_manajemen extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-		$this->load->model('m_novel');
     }
 	
 	public function index()
 	{
 		$this->load->view('admin_header');
-		$this->load->view('admin_daftar_tersedia');
+		$this->load->view('admin_manajemen_admin');
 	}
 	
-	public function tersedia()
+	public function admin()
 	{
 		$this->load->view('admin_header');
-		$this->load->view('admin_daftar_tersedia');
+		$this->load->view('admin_manajemen_admin');
 	}
 	
-	public function dipinjam()
+	public function user()
 	{
 		$this->load->view('admin_header');
-		$this->load->view('admin_daftar_dipinjam');
+		$this->load->view('admin_manajemen_user');
 	}
 }

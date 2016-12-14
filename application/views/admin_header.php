@@ -40,7 +40,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
 										<ul class="dropdown-menu animated fadeInUp">
 											<li><a data-toggle="modal" data-target="#modal_profil" href="#">Profil</a></li>
-											<li><a href="<?php echo site_url(); ?>admin">Keluar</a></li>
+											<li><a href="<?php echo site_url(); ?>admin/keluar">Keluar</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -89,6 +89,16 @@
 								</ul>
 							</li>
 							<li <?php if($this->uri->segment(1) == 'admin_pengembalian') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_pengembalian"><i class="glyphicon glyphicon-check"></i> Pengembalian</a></li>
+							<li class="submenu <?php if($this->uri->segment(1) == 'admin_manajemen') { echo 'open'; } ?>">
+								<a href="#">
+									<i class="glyphicon glyphicon-user"></i> Manajemen
+									<span class="caret pull-right"></span>
+								</a>
+								<ul>
+									<li <?php if($this->uri->segment(2) == 'admin') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_manajemen/admin">Admin</a></li>
+									<li <?php if($this->uri->segment(2) == 'user') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_manajemen/user">User</a></li>
+								</ul>
+							</li>
 							<li <?php if($this->uri->segment(1) == 'admin_laporan') { echo 'class="current"'; } ?>><a href="<?php echo site_url(); ?>admin_laporan"><i class="glyphicon glyphicon-stats"></i> Laporan</a></li>
 						</ul>
 					</div>
