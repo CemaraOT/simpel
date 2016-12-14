@@ -20,6 +20,7 @@ class Admin_daftar_novel extends CI_Controller {
 		if($this->uri->segment(3) == 'tambah'){
 			$data['judul'] = '';
 			$data['deskripsi'] = '';
+			$data['penulis'] = '';
 			$data['gambar'] = '';
 			$data['stok'] = '';
 			$this->load->view('admin_header');
@@ -31,6 +32,7 @@ class Admin_daftar_novel extends CI_Controller {
 				$row = $query->row();
 				$data['id_novel'] = $row->id_novel;
 				$data['judul'] = $row->judul;
+				$data['penulis'] = $row->penulis;
 				$data['deskripsi'] = $row->deskripsi;
 				$data['gambar'] = $row->gambar;
 				$data['stok'] = $row->stok;
@@ -47,6 +49,7 @@ class Admin_daftar_novel extends CI_Controller {
 	{
 		$this->m_novel->set_judul($this->input->post('judul'));
 		$this->m_novel->set_deskripsi($this->input->post('deskripsi'));
+		$this->m_novel->set_penulis($this->input->post('penulis'));
 		$this->m_novel->set_stok($this->input->post('stok'));
 		$this->m_novel->tambah_novel();
 		
@@ -81,6 +84,7 @@ class Admin_daftar_novel extends CI_Controller {
 		$this->m_novel->set_id_novel($id_novel);
 		$this->m_novel->set_judul($this->input->post('judul'));
 		$this->m_novel->set_deskripsi($this->input->post('deskripsi'));
+		$this->m_novel->set_penulis($this->input->post('penulis'));
 		$this->m_novel->set_stok($this->input->post('stok'));
 		$this->m_novel->ubah_novel();
 		

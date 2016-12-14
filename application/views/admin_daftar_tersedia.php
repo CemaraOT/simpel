@@ -16,7 +16,7 @@
 													<th>ID</th>
 													<th>Gambar</th>
 													<th>Judul</th>
-													<th>Deskripsi</th>
+													<th>Penulis</th>
 													<th>Stok</th>
 													<th>Modifikasi</th>
 												</tr>
@@ -32,7 +32,7 @@
 														<img src="<?php echo base_url(); ?>assets/img/novel/<?php echo $row->gambar; ?>" class="img-thumbnail center-block" width="200" height="200"/>
 													</td>
 													<td><?php echo $row->judul; ?></td>
-													<td><?php echo $row->deskripsi; ?></td>
+													<td><?php echo $row->penulis; ?></td>
 													<td><?php echo $row->stok; ?></td>
 													<td>
 														<div class="text-center">

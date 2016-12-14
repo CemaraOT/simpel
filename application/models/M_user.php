@@ -41,6 +41,11 @@ class M_user extends CI_Model {
         $sql = "select * from tbl_user order by id_user desc";
         return $this->db->query($sql);
     }
+	
+	public function tampil_user_desc_limit_1() {
+        $sql = "select * from tbl_user order by id_user desc limit 1";
+        return $this->db->query($sql);
+    }
 
 	public function tampil_user_by_id_user() {
         $sql = "select * from tbl_user where id_user = '".$this->get_id_user()."'";
@@ -48,7 +53,7 @@ class M_user extends CI_Model {
     }
 	
 	public function tambah_user() {
-        $sql = "insert into tbl_novel (nama,alamat,email,no_telp,jenis_kelamin)
+        $sql = "insert into tbl_user (nama,alamat,email,no_telp,jenis_kelamin)
 					values
 					('".$this->get_nama()."','".$this->get_alamat()."','".$this->get_email()."','".$this->get_no_telp()."','".$this->get_jenis_kelamin()."')";
         return $this->db->query($sql);

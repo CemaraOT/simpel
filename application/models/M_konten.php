@@ -40,7 +40,14 @@ class M_konten extends CI_Model {
 	public function ubah_konten() {
 		$sql = "update tbl_konten set
 				judul = '".$this->get_judul()."',
-				deskripsi = '".$this->get_deskripsi()."',
+				deskripsi = '".$this->get_deskripsi()."'
+				where
+				id_konten = '".$this->get_id_konten()."'";
+		return $this->db->query($sql);
+	}
+	
+	public function ubah_gambar_konten() {
+		$sql = "update tbl_konten set
 				gambar = '".$this->get_gambar()."'
 				where
 				id_konten = '".$this->get_id_konten()."'";

@@ -47,6 +47,11 @@
 				border:0;
 				background:transparent;
 			}
+			
+			a.disabled {
+				pointer-events: none;
+				cursor: default;
+			}
 		</style>
 	</head>
 	<body>

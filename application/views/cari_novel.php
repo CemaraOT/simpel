@@ -1,4 +1,4 @@
-		<div class="container-fluid" style="background:rgba(186,212,255,1); border-radius:0px 0px 10px 10px;">
+		<div class="container-fluid" style="background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('<?php echo base_url(); ?>assets/img/background.jpg'); border-radius:0px 0px 10px 10px;">
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
 					<div id="imaginary_container">
@@ -27,9 +27,10 @@
 							<img class="img-thumbnail center-block" style="margin-top:5%" src="<?php echo base_url();?>assets/img/novel/<?php echo $row->gambar; ?>" alt="Generic placeholder image" width="200" height="200">
 						</div>
 						<div class="col-md-12">
-							<h4 class="text-center"><b><?php echo $row->judul; ?></b><br><small><?php echo $row->penulis; ?></small></h4>
-							
-							<p style="text-align:justify;"><?php echo substr($row->deskripsi,0,151); ?></p>
+							<div style="min-height:170px">
+								<h4 class="text-center"><b><?php echo $row->judul; ?></b><br><small><?php echo $row->penulis; ?></small></h4>
+								<p style="text-align:justify;"><?php echo substr($row->deskripsi,0,200); ?>...</p>
+							</div>
 							<p>Status : <span class="badge"><?php if($row->stok <= 0){ echo 'Dipinjam'; }else{ echo 'Tersedia'; } ?></span></p>
 							<p class="text-center" ><a class="btn btn-default form-control" href="<?php echo site_url('pinjam_novel/pinjam/'.$row->id_novel); ?>" role="button">Lihat &raquo;</a></p>
 						</div>

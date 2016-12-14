@@ -23,8 +23,12 @@ class Admin_manajemen extends CI_Controller {
 	
 	public function user()
 	{
-		$this->load->view('admin_header');
-		$this->load->view('admin_manajemen_user');
+		if($this->uri->segment(3) == 'cetak_kartu'){
+			$this->load->view('halaman_cetak_kartu');
+		}else{
+			$this->load->view('admin_header');
+			$this->load->view('admin_manajemen_user');
+		}
 	}
 	
 	public function tambah_admin()

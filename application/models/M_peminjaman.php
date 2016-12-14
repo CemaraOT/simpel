@@ -77,6 +77,22 @@ class M_peminjaman extends CI_Model {
         return $this->db->query($sql);
     }
 	
+	public function tampil_terpopuler() {
+        $sql = "select *, count(tbl_peminjaman.id_novel) as jumlah from tbl_peminjaman
+				inner join tbl_novel on tbl_novel.id_novel = tbl_peminjaman.id_novel
+				inner join tbl_user on tbl_user.id_user = tbl_peminjaman.id_user
+				group by tbl_peminjaman.id_novel
+				order by jumlah desc limit 3";
+        return $this->db->query($sql);
+    }
+	
+	public function peminjaman() {
+        $sql = "insert into tbl_peminjaman (id_novel,id_user,tgl_pinjam)
+					values
+					('".$this->get_id_novel()."','".$this->get_id_user()."','".$this->get_tgl_pinjam()."')";
+        return $this->db->query($sql);
+    }
+	
 	public function pengembalian() {
         $sql = "update tbl_peminjaman set
 				tgl_kembali = '".$this->get_tgl_kembali()."'
@@ -84,13 +100,6 @@ class M_peminjaman extends CI_Model {
 				id_novel = '".$this->get_id_novel()."'
 				and id_user = '".$this->get_id_user()."'
 				and tgl_kembali is NULL";
-        return $this->db->query($sql);
-    }
-	
-	public function tambah_peminjaman() {
-        $sql = "insert into tbl_novel (id_novel,id_user,tgl_pinjam,tgl_kembali,jenis_kelamin)
-					values
-					('".$this->get_id_novel()."','".$this->get_id_user()."','".$this->get_tgl_pinjam()."','".$this->get_tgl_kembali()."','".$this->get_jenis_kelamin()."')";
         return $this->db->query($sql);
     }
 }

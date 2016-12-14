@@ -42,6 +42,10 @@
 													<textarea class="form-control" rows="3" name="deskripsi"><?php echo $deskripsi; ?></textarea>
 												</div>
 												<div class="form-group">
+													<label>Penulis</label>
+													<input class="form-control" placeholder="Penulis" name="penulis" type="text" value="<?php echo $penulis; ?>">
+												</div>
+												<div class="form-group">
 													<label>Stok</label>
 													<input class="form-control" placeholder="Stok" name="stok" type="number" value="<?php echo $stok; ?>">
 												</div>

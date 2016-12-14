@@ -30,6 +30,10 @@
 																	title="Detail" data-toggle="modal" data-target="#modal_detail" id="detail_<?php echo $row->id_user; ?>">
 																	<i class="glyphicon glyphicon-search" style="font-size:12pt;"></i>
 																</button>
+																<button type="button" class="btn btn-warning btn-circle" style="width:40px; height:40px;"
+																	onclick="window.open('<?php echo site_url(); ?>admin_manajemen/user/cetak_kartu/<?php echo $row->id_user; ?>')">
+																	<i class="glyphicon glyphicon-print" style="font-size:12pt;"></i>
+																</button>
 															</div>
 														</div>
 													</td>

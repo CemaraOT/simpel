@@ -5,30 +5,23 @@
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img class="first-slide" src="<?php echo base_url();?>assets/img/banner/1.jpg" alt="First slide">
+				<?php
+					$i = 3;
+					$query = $this->m_banner->tampil_banner();
+					foreach($query->result() as $row){
+				?>
+					<div class="item <?php if($i%3 == 1){ echo 'active'; } ?>">
+					<img src="<?php echo base_url();?>assets/img/banner/<?php echo $row->gambar; ?>" alt="Slide">
 					<div class="container">
 						<div class="carousel-caption">
-							<p><a class="btn btn-lg btn-info" href="#" role="button" style="background:rgba(0,0,255,0.7); border:none;">Pinjam Sekarang !</a></p>
+							<p><a class="btn btn-lg btn-info" href="#" role="button" style="background:rgba(0,0,0,1); border:none; font-family:cursive">Coming Soon</a></p>
 						</div>
 					</div>
 				</div>
-				<div class="item">
-					<img class="second-slide" src="<?php echo base_url();?>assets/img/banner/2.jpg" alt="Second slide">
-					<div class="container">
-						<div class="carousel-caption">
-							<p><a class="btn btn-lg btn-info" href="#" role="button" style="background:rgba(0,0,255,0.7); border:none;">Pinjam Sekarang !</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<img class="third-slide" src="<?php echo base_url();?>assets/img/banner/3.jpg" alt="Third slide">
-					<div class="container">
-						<div class="carousel-caption">
-							<p><a class="btn btn-lg btn-info" href="#" role="button" style="background:rgba(0,0,255,0.7); border:none;">Pinjam Sekarang !</a></p>
-						</div>
-					</div>
-				</div>
+				<?php
+						$i--;
+					}
+				?>
 			</div>
 			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -41,57 +34,45 @@
 		</div>
 	
 		<div class="container marketing">
+			<center><h2 style="font-family:cursive">Novel Terpopuler</h2></center>
+			<hr class="featurette-divider">
 			<div class="row">
+				<?php
+					$query = $this->m_peminjaman->tampil_terpopuler();
+					foreach($query->result() as $row){
+				?>
 				<div class="col-lg-4">
-					<img class="img-thumbnail" src="<?php echo base_url();?>assets/img/novel/1-1.jpg" alt="Generic placeholder image" width="200" height="200">
-					<h2>Heading</h2>
-					<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-					<p><a class="btn btn-default" href="#" role="button">Lihat &raquo;</a></p>
+					<div style="min-height:350px;">
+						<img class="img-thumbnail" src="<?php echo base_url();?>assets/img/novel/<?php echo $row->gambar; ?>" alt="Generic placeholder image" width="200" height="200">
+						<h2><?php echo $row->judul; ?></h2>
+						<p><?php echo substr($row->deskripsi,0,250); ?>...</p>
+					</div>
+					<p><a class="btn btn-default" href="<?php echo site_url(); ?>pinjam_novel/pinjam/<?php echo $row->id_novel; ?>" role="button">Lihat &raquo;</a></p>
 				</div>
-				<div class="col-lg-4">
-					<img class="img-thumbnail" src="<?php echo base_url();?>assets/img/novel/1-2.jpg" alt="Generic placeholder image" width="200" height="200">
-					<h2>Heading</h2>
-					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-					<p><a class="btn btn-default" href="#" role="button">Lihat &raquo;</a></p>
-				</div>
-				<div class="col-lg-4">
-					<img class="img-thumbnail" src="<?php echo base_url();?>assets/img/novel/1-3.jpg" alt="Generic placeholder image" width="200" height="200">
-					<h2>Heading</h2>
-					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-					<p><a class="btn btn-default" href="#" role="button">Lihat &raquo;</a></p>
-				</div>
+				<?php
+					}
+				?>
 			</div>
 			<hr class="featurette-divider">
+			<?php
+				$i = 0;
+				$query = $this->m_konten->tampil_konten();
+				foreach($query->result() as $row){
+			?>
 			<div class="row featurette">
-				<div class="col-md-7">
-					<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				<div class="col-md-7 <?php if($i%2==1) { echo 'col-md-push-5'; }?>">
+					<h2 class="featurette-heading"><?php echo $row->judul; ?></h2>
+					<p class="lead"><?php echo $row->deskripsi; ?></p>
 				</div>
-				<div class="col-md-5">
-					<img class="featurette-image img-responsive center-block" src="<?php echo base_url();?>assets/img/update/1-.jpg" alt="Generic placeholder image">
-				</div>
-			</div>
-			<hr class="featurette-divider">
-			<div class="row featurette">
-				<div class="col-md-7 col-md-push-5">
-					<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-				</div>
-				<div class="col-md-5 col-md-pull-7">
-					<img class="featurette-image img-responsive center-block" src="<?php echo base_url();?>assets/img/update/2-.jpg" alt="Generic placeholder image">
+				<div class="col-md-5 <?php if($i%2==1) { echo 'col-md-pull-7'; }?>">
+					<img class="featurette-image img-responsive center-block" src="<?php echo base_url();?>assets/img/konten/<?php echo $row->gambar; ?>" alt="Generic placeholder image">
 				</div>
 			</div>
 			<hr class="featurette-divider">
-			<div class="row featurette">
-				<div class="col-md-7">
-					<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-				</div>
-				<div class="col-md-5">
-					<img class="featurette-image img-responsive center-block" src="<?php echo base_url();?>assets/img/update/3-.jpg" alt="Generic placeholder image">
-				</div>
-			</div>
-			<hr class="featurette-divider">
+			<?php
+					$i++;
+				}
+			?>
 			<footer>
 				<p class="pull-right"><a href="#">Kembali ke atas</a></p>
 				<p>Sistem Informasi Peminjaman Novel &copy; 2016.</p>

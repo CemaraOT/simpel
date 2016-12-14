@@ -6,6 +6,7 @@ class M_novel extends CI_Model {
 	private $judul;
 	private $stok;
 	private $deskripsi;
+	private $penulis;
 	
     //setter
 	public function set_id_novel($value) {
@@ -18,6 +19,8 @@ class M_novel extends CI_Model {
         $this->stok = $value; }
 	public function set_deskripsi($value) {
         $this->deskripsi = $value; }
+	public function set_penulis($value) {
+        $this->penulis = $value; }
 		
     //getter
 	public function get_id_novel() {
@@ -30,6 +33,8 @@ class M_novel extends CI_Model {
         return $this->stok; }
 	public function get_deskripsi() {
         return $this->deskripsi; }
+	public function get_penulis() {
+        return $this->penulis; }
 		
 	//query
 	public function tampil_novel() {
@@ -58,9 +63,9 @@ class M_novel extends CI_Model {
     }
 	
 	public function tambah_novel() {
-        $sql = "insert into tbl_novel (judul,deskripsi,stok)
+        $sql = "insert into tbl_novel (judul,deskripsi,stok,penulis)
 					values
-					('".$this->get_judul()."','".$this->get_deskripsi()."','".$this->get_stok()."')";
+					('".$this->get_judul()."','".$this->get_deskripsi()."','".$this->get_stok()."','".$this->get_penulis()."')";
         return $this->db->query($sql);
     }
 	
@@ -68,7 +73,8 @@ class M_novel extends CI_Model {
 		$sql = "update tbl_novel set
 				judul = '".$this->get_judul()."',
 				deskripsi = '".$this->get_deskripsi()."',
-				stok = '".$this->get_stok()."'
+				stok = '".$this->get_stok()."',
+				penulis = '".$this->get_penulis()."'
 				where
 				id_novel = '".$this->get_id_novel()."'";
 		return $this->db->query($sql);
