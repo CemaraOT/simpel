@@ -47,6 +47,11 @@ class M_novel extends CI_Model {
         return $this->db->query($sql);
     }
 	
+	public function tampil_novel_by_id($id) {
+        $sql = "select * from tbl_novel where id_novel = '".$id."'";
+        return $this->db->query($sql);
+    }
+	
 	public function tampil_novel_by_judul_or_deskripsi() {
         $sql = "select * from tbl_novel where judul like '%".$this->get_judul()."%' or deskripsi like '%".$this->get_deskripsi()."%'";
         return $this->db->query($sql);
