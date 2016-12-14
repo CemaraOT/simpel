@@ -11,7 +11,7 @@
 		
 		<title>Simpel</title>
 
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="<?php echo base_url();?>assets/css/animate.css" rel="stylesheet">
 		<link href="<?php echo base_url();?>assets/css/carousel.css" rel="stylesheet">
 		<link href="<?php echo base_url();?>assets/css/font-awesome.min.css" rel="stylesheet">

@@ -2,14 +2,16 @@
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
 					<div id="imaginary_container">
-						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control"  placeholder="Cari novel" >
-							<span class="input-group-addon">
-								<button type="submit">
-									<span class="glyphicon glyphicon-search"></span>
-								</button>  
-							</span>
-						</div>
+						<form method="post" action="<?php echo site_url(); ?>cari_novel/cari">
+							<div class="input-group stylish-input-group">
+								<input type="text" class="form-control" name="cari" placeholder="Cari novel" />
+								<span class="input-group-addon">
+									<button type="submit">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>  
+								</span>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -17,17 +19,17 @@
 		<div class="container">
 			<div class="row">
 				<?php
-					for($i=0;$i<12;$i++){
+					foreach($tampil_cari->result() as $row){
 				?>
 				<div class="col-md-4 col-xs-12" style="border:1px solid #b1c1db; border-radius:15px; width:31.3333%; margin:1%;">
 					<div class="row">
 						<div class="col-md-12">
-							<img class="img-thumbnail center-block" style="margin-top:5%" src="<?php echo base_url();?>assets/img/novel/1-1.jpg" alt="Generic placeholder image" width="200" height="200">
+							<img class="img-thumbnail center-block" style="margin-top:5%" src="<?php echo base_url();?>assets/img/novel/<?php echo $row->gambar; ?>" alt="Generic placeholder image" width="200" height="200">
 						</div>
 						<div class="col-md-12">
-							<h4>JUDUL</h4>
-							<p>aasdha dasd asduah dhas hdauhd asda sdasdasd asdasdas dasd asdas dasdda s asdasd asda asd asdasdasdasd dasd [selengkapnya..]</p>
-							<p>Status : <span class="badge">Tersedia/Dipinjam</span></p>
+							<h4><?php echo $row->judul; ?></h4>
+							<p><?php echo $row->deskripsi; ?></p>
+							<p>Status : <span class="badge"><?php if($row->stok <= 0){ echo 'Dipinjam'; }else{ echo 'Tersedia'; } ?></span></p>
 							<p><a class="btn btn-default" href="<?php echo site_url(); ?>pinjam_novel/pinjam" role="button">Lihat &raquo;</a></p>
 						</div>
 					</div>

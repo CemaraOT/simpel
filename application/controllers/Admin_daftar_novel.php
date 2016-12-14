@@ -16,8 +16,13 @@ class Admin_daftar_novel extends CI_Controller {
 	
 	public function tersedia()
 	{
-		$this->load->view('admin_header');
-		$this->load->view('admin_daftar_tersedia');
+		if($this->uri->segment(3)){
+			$this->load->view('admin_header');
+			$this->load->view('admin_manipulasi_daftar_tersedia');
+		}else{
+			$this->load->view('admin_header');
+			$this->load->view('admin_daftar_tersedia');
+		}
 	}
 	
 	public function dipinjam()

@@ -9,24 +9,20 @@
 									<form action="">
 										<fieldset>
 											<div class="form-group">
-												<label>Text field</label>
-												<input class="form-control" placeholder="Text field" type="text">
+												<label>ID Buku</label>
+												<input class="form-control" placeholder="ID Buku" type="text">
 											</div>
 											<div class="form-group">
-												<label>Password field</label>
-												<input class="form-control" placeholder="Password" type="password" value="mypassword">
+												<label>Peminjam</label>
+												<input class="form-control" placeholder="Peminjam" type="text">
 											</div>
 											<div class="form-group">
-												<label>Textarea</label>
-												<textarea class="form-control" placeholder="Textarea" rows="3"></textarea>
+												<label>Jumlah Pinjam</label>
+												<input class="form-control" placeholder="Jumlah Pinjam" type="text">
 											</div>
 											<div class="form-group">
-												<label>Phone</label>
-												<input class="form-control" placeholder="Phone" type="text">
-											</div>
-											<div class="form-group">
-												<label>Email address</label>
-												<input type="email" class="form-control" placeholder="Enter email" />
+												<label>Kondisi</label>
+												<input class="form-control" placeholder="Kondisi" type="text">
 											</div>
 										</fieldset>
 										<div>

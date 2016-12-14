@@ -42,6 +42,18 @@ class M_novel extends CI_Model {
         return $this->db->query($sql);
     }
 	
+	public function tampil_novel_by_judul_or_deskripsi() {
+        $sql = "select * from tbl_novel where judul like '%".$this->get_judul()."%' or deskripsi like '%".$this->get_deskripsi()."%'";
+        return $this->db->query($sql);
+    }
+	
+	public function tambah_novel() {
+        $sql = "insert into tbl_novel (judul,deskripsi,stok)
+					values
+					('".$this->get_judul()."','".$this->get_deskripsi()."','".$this->get_stok()."')";
+        return $this->db->query($sql);
+    }
+	
 	public function ubah_novel() {
 		$sql = "update tbl_novel set
 				judul = '".$this->get_judul()."',

@@ -10,21 +10,30 @@
 										<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 											<thead>
 												<tr>
-													<th>Rendering engine</th>
-													<th>Browser</th>
-													<th>Platform(s)</th>
-													<th>Engine version</th>
-													<th>CSS grade</th>
+													<th>ID Peminjaman</th>
+													<th>ID Novel</th>
+													<th>ID User</th>
+													<th>Tanggal Pinjam</th>
+													<th>Tanggal Kembali</th>
+													<th>Status</th>
 												</tr>
 											</thead>
 											<tbody>
+												<?php
+													$query = $this->m_peminjaman->tampil_peminjaman();
+													foreach($query->result() as $row){
+												?>
 												<tr>
-													<td>test</td>
-													<td>test</td>
-													<td>test</td>
-													<td>test</td>
-													<td>test</td>
+													<td><?php echo $row->id_peminjaman; ?></td>
+													<td><?php echo $row->id_novel; ?></td>
+													<td><?php echo $row->id_user; ?></td>
+													<td><?php echo date('d F Y',strtotime($row->tgl_pinjam)); ?></td>
+													<td><?php echo date('d F Y',strtotime($row->tgl_kembali)); ?></td>
+													<td><?php if($row->status == '1'){ echo 'Dipinjam'; }else{ echo 'Dikembalikan'; } ?></td>
 												</tr>
+												<?php
+													}
+												?>
 											</tbody>
 										</table>
 									</div>

@@ -2,9 +2,9 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="content-box-header panel-heading">
-								<div class="panel-title ">Daftar Novel Tersedia</div>
+								<div class="panel-title ">Manajemen Admin</div>
 								<div class="panel-options">
-									<a href="<?php echo site_url(); ?>admin_daftar_novel/tersedia/tambah"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+									<a href="<?php echo site_url(); ?>admin_manajemen/admin/tambah"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
 								</div>
 							</div>
 							<div class="content-box-large box-with-header">
@@ -13,35 +13,25 @@
 										<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 											<thead>
 												<tr>
-													<th>ID</th>
-													<th>Gambar</th>
-													<th>Judul</th>
-													<th>Deskripsi</th>
-													<th>Stok</th>
+													<th>Username</th>
 													<th>Modifikasi</th>
 												</tr>
 											</thead>
 											<tbody>
 												<?php
-													$query = $this->m_novel->tampil_novel();
+													$query = $this->m_admin->tampil_admin();
 													foreach($query->result() as $row){
 												?>
 												<tr>
-													<td><?php echo $row->id_novel; ?></td>
-													<td>
-														<img src="<?php echo base_url(); ?>assets/img/novel/<?php echo $row->gambar; ?>" class="img-thumbnail center-block" width="200" height="200"/>
-													</td>
-													<td><?php echo $row->judul; ?></td>
-													<td><?php echo $row->deskripsi; ?></td>
-													<td><?php echo $row->stok; ?></td>
+													<td><?php echo $row->username; ?></td>
 													<td>
 														<div class="text-center">
-															<button type="button" class="btn btn-info btn-circle" style="width:40px; height:40px;"
-																onclick="window.location.href='<?php echo site_url(); ?>admin_daftar_novel/tersedia/ubah/<?php echo $row->id_novel; ?>'">
+															<button type="button" class="btn btn-info btn-circle ubah" style="width:40px; height:40px;"
+																title="Ubah" data-toggle="modal" data-target="#modal_ubah" id="ubah_<?php echo $row->username; ?>">
 																<i class="glyphicon glyphicon-edit" style="font-size:12pt;"></i>
 															</button>
 															<button type="button" class="btn btn-danger btn-circle hapus" style="width:40px; height:40px;"
-																title="Hapus" data-toggle="modal" data-target="#modal_konfirmasi" id="hapus_<?php echo $row->id_novel; ?>">
+																title="Hapus" data-toggle="modal" data-target="#modal_konfirmasi" id="hapus_<?php echo $row->username; ?>">
 																<i class="glyphicon glyphicon-trash" style="font-size:12pt;"></i>
 															</button>
 														</div>
@@ -70,6 +60,26 @@
 	</body>
 </html>
 
+<div class="modal fade" id="modal_ubah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form method="POST" id="form_ubah" enctype="multipart/form-data">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Profil Admin</h4>
+				</div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal"> Tutup</button>
+				</div>
+			</form>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
 <div class="modal fade" id="modal_konfirmasi">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -81,7 +91,7 @@
 			</div>
 			<div class="modal-body">
 				<p>Apakah anda yakin ingin menghapus novel ?</p>
-				<input type="hidden" name="id_novel" id="id_novel">
+				<input type="hidden" name="username" id="username">
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-primary" id="hapus"> Ya</button>
@@ -96,11 +106,11 @@
 		
 		$('.hapus').click(function() {
             var id=this.id.substr(6);
-            $('#id_novel').val(id);
+            $('#username').val(id);
         });
 		
 		$('#hapus').click(function() {
-			window.location = '<?php echo site_url();?>admin_daftar_novel/hapus_tersedia/' + $('#id_novel').val();
+			window.location = '<?php echo site_url();?>admin_manajemen/hapus_admin/' + $('#username').val();
 		});
 		
 		<?php if($this->session->flashdata('success')){ ?>
