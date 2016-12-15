@@ -23,7 +23,7 @@
 															<text>* ukuran gambar harus 500 x 500 pixel.</text><br/>
 															<text>* format .jpg atau .png</text>
 														</div>
-														<input type="file" name="gambar[<?php echo $i; ?>]" class="form-control">
+														<input type="file" name="gambar_<?php echo $i; ?>" class="form-control">
 														<input type="hidden" name="id_konten[<?php echo $i; ?>]" value="<?php echo $row->id_konten; ?>">
 													</div>
 													<div class="form-group">

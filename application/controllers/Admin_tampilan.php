@@ -39,7 +39,7 @@ class Admin_tampilan extends CI_Controller {
 		
 		$gambar = $config['file_name']= "1.jpg";
 		$this->upload->initialize($config);
-		if($this->upload->do_upload('gambar[0]')){
+		if($this->upload->do_upload('gambar_0')){
 			$this->m_banner->set_id_banner($this->input->post('id_banner[0]'));
 			$this->m_banner->set_gambar($gambar);
 			$this->m_banner->ubah_banner();	
@@ -47,7 +47,7 @@ class Admin_tampilan extends CI_Controller {
 		
 		$gambar = $config['file_name']= "2.jpg";
 		$this->upload->initialize($config);
-		if($this->upload->do_upload('gambar[1]')){
+		if($this->upload->do_upload('gambar_1')){
 			$this->m_banner->set_id_banner($this->input->post('id_banner[1]'));
 			$this->m_banner->set_gambar($gambar);
 			$this->m_banner->ubah_banner();	
@@ -55,7 +55,7 @@ class Admin_tampilan extends CI_Controller {
 		
 		$gambar = $config['file_name']= "3.jpg";
 		$this->upload->initialize($config);
-		if($this->upload->do_upload('gambar[2]')){
+		if($this->upload->do_upload('gambar_2')){
 			$this->m_banner->set_id_banner($this->input->post('id_banner[2]'));
 			$this->m_banner->set_gambar($gambar);
 			$this->m_banner->ubah_banner();	
@@ -77,7 +77,7 @@ class Admin_tampilan extends CI_Controller {
 		
 		$gambar = $config['file_name']= "1.jpg";
 		$this->upload->initialize($config);
-		if($this->upload->do_upload('gambar[0]')){
+		if($this->upload->do_upload('gambar_0')){
 			$this->m_konten->set_id_konten($this->input->post('id_konten[0]'));
 			$this->m_konten->set_gambar($gambar);
 			$this->m_konten->ubah_gambar_konten();	
@@ -90,7 +90,7 @@ class Admin_tampilan extends CI_Controller {
 		
 		$gambar = $config['file_name']= "2.jpg";
 		$this->upload->initialize($config);
-		if($this->upload->do_upload('gambar[1]')){
+		if($this->upload->do_upload('gambar_1')){
 			$this->m_konten->set_id_konten($this->input->post('id_konten[1]'));
 			$this->m_konten->set_gambar($gambar);
 			$this->m_konten->ubah_gambar_konten();	
@@ -103,7 +103,7 @@ class Admin_tampilan extends CI_Controller {
 		
 		$gambar = $config['file_name']= "3.jpg";
 		$this->upload->initialize($config);
-		if($this->upload->do_upload('gambar[2]')){
+		if($this->upload->do_upload('gambar_2')){
 			$this->m_konten->set_id_konten($this->input->post('id_konten[2]'));
 			$this->m_konten->set_gambar($gambar);
 			$this->m_konten->ubah_gambar_konten();	
